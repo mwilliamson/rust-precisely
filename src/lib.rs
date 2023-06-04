@@ -23,7 +23,7 @@ impl MatchResult {
 }
 
 pub trait Matcher<T> {
-    fn match_value(&self, value: T) -> MatchResult;
+    fn match_value(&self, actual: T) -> MatchResult;
     fn describe(&self) -> TextTree;
 }
 

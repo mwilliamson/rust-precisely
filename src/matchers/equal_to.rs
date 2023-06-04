@@ -9,13 +9,13 @@ pub struct EqualToMatcher<T> {
 }
 
 impl <T> Matcher<T> for EqualToMatcher<T> where T: std::fmt::Debug + PartialEq {
-    fn match_value(&self, value: T) -> MatchResult {
-        if self.value == value {
+    fn match_value(&self, actual: T) -> MatchResult {
+        if self.value == actual {
             MatchResult::matched()
         } else {
             MatchResult::unmatched(TextTree::concat(vec![
                 TextTree::text("was "),
-                TextTree::debug(value)
+                TextTree::debug(actual)
             ]))
         }
     }
